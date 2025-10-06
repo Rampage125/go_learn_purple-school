@@ -10,8 +10,6 @@ import (
 // } 
 
 func main() {
-  x:=98
-  if fmt.Sprintf("%T", x) == "int" {
-    fmt.Println("x is int")
+  x := []int{3,5,7,5,2,1}
+  fmt.Println(x[1:])
   }
-}
