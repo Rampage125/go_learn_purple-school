@@ -32,18 +32,26 @@ func choice() int {
   return x
 }
 
-func addBookmark(bookmarks bookMap) {
-  var key, value string
-  fmt.Println("Введите ключ: ")
-  fmt.Scan(&key)
-  fmt.Println("Введите значение: ")
-  fmt.Scan(&value)
-  bookmarks[key] = value
-}
-
-func deleteBookmark(bookmarks bookMap) {
+func enterKey() string {
   var key string
   fmt.Println("Введите ключ: ")
   fmt.Scan(&key)
+  return key
+}
+
+func enterValue() string {
+  var value string
+  fmt.Println("Введите значение: ")
+  fmt.Scan(&value)
+  return value
+}
+
+func addBookmark(bookmarks bookMap) {
+  key := enterKey()
+  value := enterValue()
+  bookmarks[key] = value
+}
+
+func deleteBookmark(bookmarks bookMap) {key := enterKey()
   delete(bookmarks, key)
 }

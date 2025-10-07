@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-type book = map[string]int
 func main() {
-  x := make(book,2)
-  x["first"] = 777
-  x["second"] = 666
-  delete(x, "first")
-  
+  x := 2
+  double(&x)
   fmt.Println(x)
-  fmt.Println(x["third"])
+  double(&x)
+  fmt.Println(x)
+}
 
+func double(x *int) {
+  *x *= 2
 }
