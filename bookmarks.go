@@ -24,7 +24,8 @@ Menu:
 
 func choice() int {
   var x int
-  fmt.Println(`— 1. Посмотреть закладки
+  fmt.Println(`
+— 1. Посмотреть закладки
 — 2. Добавить закладку
 — 3. Удалить закладку
 — 4. Выход`)
@@ -32,26 +33,19 @@ func choice() int {
   return x
 }
 
-func enterKey() string {
-  var key string
-  fmt.Println("Введите ключ: ")
-  fmt.Scan(&key)
-  return key
-}
-
-func enterValue() string {
-  var value string
-  fmt.Println("Введите значение: ")
-  fmt.Scan(&value)
-  return value
+func enterInfo(prompt string) (info string) {
+  fmt.Println(prompt)
+  fmt.Scan(&info)
+  return
 }
 
 func addBookmark(bookmarks bookMap) {
-  key := enterKey()
-  value := enterValue()
+  key := enterInfo("Введите ключ: ")
+  value := enterInfo("Введите значение: ")
   bookmarks[key] = value
 }
 
-func deleteBookmark(bookmarks bookMap) {key := enterKey()
+func deleteBookmark(bookmarks bookMap) {
+  key := enterInfo("Введите ключ: ")
   delete(bookmarks, key)
 }

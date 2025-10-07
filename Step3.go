@@ -4,26 +4,18 @@ import "fmt"
 
 
 func main() {
-  transactions := []float64{}
-  for {
-    trans := addTransaction()
-    if trans == 0 {
-      break
-    } else {
-      transactions = append(transactions, trans)
-    }
-  }
-  res := 0.0
-  for _,v := range transactions{
-    res += v
-  }
-  fmt.Println("Баланс: \n",res)
+  x := [4]int{12,6,9,3}
+  y := nil
+  fmt.Println(x)
+  reverse(&x)
+  fmt.Println(x)
+  g := &y
+  fmt.Println(*g)
 }
 
-
-func addTransaction() float64 {
-  fmt.Println("Введите транзакцию: ")
-  var trans float64
-  fmt.Scan(&trans)
-  return trans
+func reverse(xMap *[4]int) {
+  for key, value := range *xMap {
+    xMap[len(xMap)-1-key] = value
+  }
+  // fmt.Println(xMap)
 }
